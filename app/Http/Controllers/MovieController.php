@@ -7,12 +7,12 @@ use App\Models\Movie;
 
 class MovieController extends Controller
 {
-    public function store(Request $request)
+    public function movies(Request $request)
     {
         $validatedData = $request->validate([
-            'image' => 'required',
-            'title' => 'required',
-            'genre' => 'required',
+            'image' => 'required|string',
+            'title' => 'required|string',
+            'genre' => 'required|string',
             'year' => 'required|integer',
             'duration' => 'required|integer',
         ]);
