@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MovieController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,7 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/me', [AuthController::class, 'me']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/movies', [MovieController::class, 'movies']);
+    Route::get('/movies', [MovieController::class, 'getmovies']);
 });
 
 Route::post('/register', [AuthController::class, 'register']);

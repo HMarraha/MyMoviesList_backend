@@ -9,5 +9,5 @@ class Movie extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['image', 'title', 'genre', 'year', 'duration'];
+    protected $fillable = ['image', 'title', 'overview'];
 }

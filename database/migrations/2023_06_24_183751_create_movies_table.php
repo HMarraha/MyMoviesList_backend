@@ -15,9 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('image');
             $table->string('title');
-            $table->string('genre');
-            $table->integer('year');
-            $table->integer('duration');
+            $table->text('overview')->nullable();
             $table->timestamps();
         });
     }
