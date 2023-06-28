@@ -10,9 +10,9 @@ class MovieController extends Controller
     public function movies(Request $request)
     {
         $validatedData = $request->validate([
-            'image' => 'required|unique:movies',
-            'title' => 'required|unique:movies',
-            'overview' => 'required|unique:movies',
+            'image' => 'unique:movies',
+            'title' => 'unique:movies',
+            'overview' => 'unique:movies',
         ]);
         $movie = Movie::create($validatedData);
 

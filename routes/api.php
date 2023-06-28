@@ -4,7 +4,8 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
-
+use App\Http\Controllers\WatchingMovieController;
+use App\Http\Controllers\WantToWatchMoviesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,10 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/movies', [MovieController::class, 'movies']);
     Route::get('/movies', [MovieController::class, 'getmovies']);
+    Route::post('/watchingmovies', [WatchingMovieController::class, 'watchingmovies']);
+    Route::get('/watchingmovies', [WatchingMovieController::class, 'getwatchingmovies']);
+    Route::post('/wanttowatchmovies', [WantToWatchMoviesController::class, 'wanttowatchmovies']);
+    Route::get('/wanttowatchmovies', [WantToWatchMoviesController::class, 'getwanttowatchmovies']);
 });
 
 Route::post('/register', [AuthController::class, 'register']);
