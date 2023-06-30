@@ -26,17 +26,22 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/movies', [MovieController::class, 'movies']);
     Route::get('/movies', [MovieController::class, 'getmovies']);
+    Route::delete('/movies/{title}', [MovieController::class, 'deleteMovie'] );
     Route::post('/watchingmovies', [WatchingMovieController::class, 'watchingmovies']);
     Route::get('/watchingmovies', [WatchingMovieController::class, 'getwatchingmovies']);
+    Route::delete('/watchingmovies/{title}', [WatchingMovieController::class, 'deletewatchingmovies']);
     Route::post('/wanttowatchmovies', [WantToWatchMoviesController::class, 'wanttowatchmovies']);
     Route::get('/wanttowatchmovies', [WantToWatchMoviesController::class, 'getwanttowatchmovies']);
+    Route::delete('wanttowatchmovies/{title}', [WantToWatchMoviesController::class, 'deletewanttowatchmovies']);
     Route::post('/watchedtvshows', [WatchedTvShowController::class , 'watchedtvshows']);
     Route::get('/watchedtvshows', [WatchedTvShowController::class , 'getwatchedtvshows']);
+    Route::delete('watchedtvshows/{title}', [WatchedTvShowController::class, 'deletewatchedtvshows']);
     Route::post('/watchingtvshows', [WatchingTvShowController::class , 'watchingtvshows']);
     Route::get('/watchingtvshows', [WatchingTvShowController::class , 'getwatchingtvshows']);
+    Route::delete('watchingtvshows/{title}', [WatchingTvShowController::class, 'deletewatchingtvshows']);
     Route::post('/wanttowatchtvshows', [WantToWatchTvShowController::class, 'wanttowatchtvshows']);
     Route::get('/wanttowatchtvshows', [WantToWatchTvShowController::class , 'getwanttowatchtvshows']);
-    Route::delete('/movies/{title}', [MovieController::class, 'deleteMovie'] );
+    Route::delete('wanttowatchtvshows/{title}', [WantToWatchTvShowController::class, 'deletewanttowatchtvshows']);
 });
 
 Route::post('/register', [AuthController::class, 'register']);

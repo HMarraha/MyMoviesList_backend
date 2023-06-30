@@ -25,4 +25,16 @@ class WatchedTvShowController extends Controller
 
         return response()->json($watchedtvshows);
     }
+    public function deletewatchedtvshows($title)
+    {
+        $watchedtvshows = WatchedTvShow::where('watchedtvshowtitle', $title)->first();
+        
+        if(!$watchedtvshows) {
+            return response()->json(['message' => 'tvshow not found'], 404);
+        }
+
+        $watchedtvshows->delete();
+
+        return response()->json(['message' => 'tvshow deleted successfully'], 200);
+    }
 }

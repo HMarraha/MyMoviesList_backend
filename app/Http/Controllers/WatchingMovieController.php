@@ -25,4 +25,17 @@ class WatchingMovieController extends Controller
 
         return response()->json($watchingmovies);
     }
+
+    public function deletewatchingmovies($title)
+    {
+        $watchingmovies = WatchingMovie::where('watchingtitle', $title)->first();
+
+        if (!$watchingmovies) {
+            return response()->json(['message' => 'movie not found'], 404);
+        } 
+
+        $watchingmovies->delete();
+
+        return response()->json(['message' => 'movie deleted successfully'],200);
+    }
 }
