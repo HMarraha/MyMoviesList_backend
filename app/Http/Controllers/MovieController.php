@@ -24,4 +24,16 @@ class MovieController extends Controller
 
         return response()->json($movies);
     }
+    public function deleteMovie($title)
+{
+    $movie = Movie::where('title', $title)->first();
+    
+    if (!$movie) {
+        return response()->json(['message' => 'Movie not found'], 404);
+    }
+    
+    $movie->delete();
+
+    return response()->json(['message' => 'Movie deleted successfully'], 200);
+}
 }
