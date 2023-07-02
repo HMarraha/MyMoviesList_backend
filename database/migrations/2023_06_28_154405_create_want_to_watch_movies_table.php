@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('want_to_watch_movies', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
             $table->string('wanttowatchimage')->nullable();
             $table->string('wanttowatchtitle')->nullable();
             $table->text('wanttowatchoverview')->nullable();

@@ -9,5 +9,5 @@ class WantToWatchMovie extends Model
 {
     use HasFactory;
 
-    protected $fillable = [ 'wanttowatchimage', 'wanttowatchtitle', 'wanttowatchoverview'];
+    protected $fillable = ['user_id', 'wanttowatchimage', 'wanttowatchtitle', 'wanttowatchoverview'];
 }
